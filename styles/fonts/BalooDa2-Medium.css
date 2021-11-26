@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'BalooDa2';
+  font-weight: bolder;
+  src: url('/res/fonts/BalooDa2-Extrabold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BalooDa2';
+    font-weight: bold;
+    src: url('/res/fonts/BalooDa2-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BalooDa2';
+  font-weight: 800;
+  src: url('/res/fonts/BalooDa2-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BalooDa2';
+  font-weight: medium;
+  src: url('/res/fonts/BalooDa2-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BalooDa2';
+  font-weight: normal;
+  src: url('/res/fonts/BalooDa2-Regular.ttf') format('truetype');
+}
+
