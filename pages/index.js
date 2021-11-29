@@ -6,50 +6,21 @@ import {
   Box,
   Flex,
   Image,
+  Stack,
   Button,
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 
+import Link from "next/link";
+
 import { IoSearch } from "react-icons/io5";
-import {MdOutlineDarkMode, MdOutlineLightMode} from "react-icons/md"
+import {FaArrowRight} from "react-icons/fa"
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const [logo, setLogo] = useState(
-    colorMode == "light"
-      ? "/res/logos/svg/txtlogo.svg"
-      : "/res/logos/svg/txtlogodark.svg"
-  );
-  const [border, setBorder] = useState(colorMode === "light" ? "0px" : "1px");
-  const [isDark,setIsDark]=useState(colorMode !== "light")
-  function toggleDarkMode() {
-    toggleColorMode();
-    setLogo(
-      colorMode == "light"
-        ? "/res/logos/svg/txtlogodark.svg"
-        : "/res/logos/svg/txtlogo.svg"
-    );
-    setBorder(colorMode === "light" ? "0px" : "1px");
-    setIsDark(colorMode !== "light")
-  }
-
-  function search(){
-    alert("ok")
-  }
-
-  useEffect(() => {
-    setLogo(
-      colorMode == "light"
-        ? "/res/logos/svg/txtlogo.svg"
-        : "/res/logos/svg/txtlogodark.svg"
-    );
-    setBorder(colorMode === "light" ? "1px" : "0px");
-    setIsDark(colorMode !== "light")
-  });
-
   const headerbg = useColorModeValue("white", "gray.900");
   const color = useColorModeValue("gray.800", "white");
   return (
@@ -60,37 +31,53 @@ export default function Home() {
         desc={process.env.Site_Desc}
         type=""
       />
-      <Box
-        display={["none", "none", "block"]}
-        h="39px"
-        w="100%"
-        borderBottom={border}
-        borderColor="gray.200"
-      ></Box>
       <Flex
-        alignItems="center"
-        borderBottom={border}
-        borderColor="gray.200"
         w="100%"
-        h="63px"
-        bg={headerbg}
-        color={color}
+        pl={["10px", "10px", "110px"]}
+        pr={["10px", "10px", "110px"]}
+        mt={["10px", "20px", "30px"]}
+        justifyContent="center"
+        alignItems="center"
       >
-        <Image h="27px" ml={["10px", "50px", "175px"]} src={logo} />
-        <Flex alignItems="center" justifyContent="right" h="100%" w="100%">
-          <Flex mr={["10px", "50px", "181px"]} alignItems="center" h="100%">
-            <Icon onClick={toggleDarkMode} display={isDark?"block":"none"} boxSize="20px" as={MdOutlineLightMode} mr="15px"/>
-            <Icon onClick={toggleDarkMode} display={!isDark?"block":"none"} boxSize="20px" as={MdOutlineDarkMode} mr="15px"/>
-            <Icon onClick={()=>{search()}} boxSize="17.6px" style={{strokeWidth:"15"}} as={IoSearch} />
-          </Flex>
-        </Flex>
+        <Stack borderRadius="20px" direction="horizontal" bg="#c9ddff" w="100%">
+          <Box w="50%" h="100%" pl="50px" mt="20px" pb="50px">
+            <Heading mt="50px" fontSize="2.7rem" color="#404040">
+              <Box as="span" color="#FF6700">
+                বাংলা ভাষায়{" "}
+              </Box>
+              বিজ্ঞান চর্চাই আমাদের লক্ষ
+            </Heading>
+            <Text mt="20px" fontWeight="medium" color="#404040" pr="50px">
+              তুমুল বেগে এগিয়ে যাচ্ছে বিজ্ঞান। কিন্তু মাতৃভাষায় বিজ্ঞান চর্চা
+              এখনো করুণ অবস্থায়। বাংলায় বিজ্ঞান চর্চা সমৃদ্ধ করা না গেলে,
+              বিজ্ঞানের আলো হতে বঞ্চিত হবে অনেকেই। তাই
+              <Box as="span" color="#FF6700">
+                {" "}
+                বাংলায় বিজ্ঞান চর্চা সমৃদ্ধ করার আমাদের এই ক্ষুদ্র প্রচেষ্টা।
+              </Box>
+            </Text>
+            <Link href="/our-story">
+            <a>
+            <Button
+              mt="20px"
+              alignItems="center"
+              p="25px"
+              rightIcon={<Icon as={FaArrowRight}/>}
+              color="white"
+              bg="linear-gradient(90deg, rgba(255,103,0,1) 0%, rgba(255,33,0,1) 100%);"
+              _hover={{bg:"linear-gradient(90deg, rgba(255,103,0,1) 0%, rgba(255,33,0,1) 100%);",transform:"scale(1.1)"}}
+              _focus={{boxShadow:"none"}}
+              _active={{bg:"linear-gradient(90deg, rgba(255,103,0,1) 0%, rgba(255,33,0,1) 100%);"}}
+              variant="solid"
+            >
+              আমাদের গল্প পড়ুন
+            </Button>
+            </a>
+            </Link>
+          </Box>
+          <Image pt="10px" pb="10px" w="50%" src="/res/vectors/thinking.svg" />
+        </Stack>
       </Flex>
     </>
   );
-}
-
-export async function getStaticProps(context) {
-  return {
-    props: {}, // will be passed to the page component as props
-  };
 }
