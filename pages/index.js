@@ -7,6 +7,7 @@ import {
   Flex,
   Image,
   Stack,
+  VStack,
   Button,
   useColorMode,
   useColorModeValue,
@@ -33,21 +34,20 @@ export default function Home() {
       />
       <Flex
         w="100%"
-        pl={["10px", "10px", "110px"]}
-        pr={["10px", "10px", "110px"]}
         mt={["10px", "20px", "30px"]}
         justifyContent="center"
         alignItems="center"
       >
-        <Stack borderRadius="20px" direction="horizontal" bg="#c9ddff" w="100%">
-          <Box w="50%" h="100%" pl="50px" mt="20px" pb="50px">
-            <Heading mt="50px" fontSize="2.7rem" color="#404040">
-              <Box as="span" color="#FF6700">
+        <Flex bg="rgba(0,0,0,1)" borderRadius="20.1px" maxW="1200px">
+        <Stack borderRadius="20px" direction={{base:"column-reverse",sm:"column",md:"row"}} bg={useColorModeValue("rgba(201, 221, 255,1)","rgba(201, 221, 255,0.5)")} w="100%">
+          <Box w="100%" h="100%" pl={{base:"20px",sm:"50px"}} mt="20px" pb="50px">
+            <Heading mt={["0px","0px","50px"]} fontSize={{base:"2rem",sm:"2.7rem"}} textAlign={{base:"left",sm:"center",md:"left"}} color={useColorModeValue("#404040","#dedede")}>
+              <Box as="span" color="rgba(255, 120, 31,1)">
                 বাংলা ভাষায়{" "}
               </Box>
               বিজ্ঞান চর্চাই আমাদের লক্ষ
             </Heading>
-            <Text mt="20px" fontWeight="medium" color="#404040" pr="50px">
+            <Text textAlign={{base:"left",sm:"center",md:"left"}} mt="20px" fontWeight="medium" color={useColorModeValue("#404040","#dedede")} pr="50px">
               তুমুল বেগে এগিয়ে যাচ্ছে বিজ্ঞান। কিন্তু মাতৃভাষায় বিজ্ঞান চর্চা
               এখনো করুণ অবস্থায়। বাংলায় বিজ্ঞান চর্চা সমৃদ্ধ করা না গেলে,
               বিজ্ঞানের আলো হতে বঞ্চিত হবে অনেকেই। তাই
@@ -56,6 +56,7 @@ export default function Home() {
                 বাংলায় বিজ্ঞান চর্চা সমৃদ্ধ করার আমাদের এই ক্ষুদ্র প্রচেষ্টা।
               </Box>
             </Text>
+            <Flex w="100%" justifyContent={{base:"left",sm:"center",md:"left"}}>
             <Link href="/our-story">
             <a>
             <Button
@@ -74,9 +75,13 @@ export default function Home() {
             </Button>
             </a>
             </Link>
+            </Flex>
           </Box>
-          <Image pt="10px" pb="10px" w="50%" src="/res/vectors/thinking.svg" />
+          <Flex justifyContent="center" width="100%">
+          <Image alt="" maxWidth="600px" pt="10px" pb="10px" w="100%" src="/res/vectors/thinking.svg" />
+          </Flex>
         </Stack>
+        </Flex>
       </Flex>
     </>
   );

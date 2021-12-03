@@ -43,7 +43,6 @@ export default function Head({
       {iwidth && <meta property="og:image:width" content={iwidth} />}
       {iheight && <meta property="og:image:height" content={iheight} />}
       {ialt && <meta property="og:image:alt" content={ialt} />}
-
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:description"
@@ -68,7 +67,7 @@ export default function Head({
         sizes="16x16"
         href="/res/favicons/favicon-16x16.png"
       />
-      <link rel="manifest" href="/res/favicons/site.webmanifest" />
+       <link rel="manifest" href="/res/favicons/site.webmanifest" />
     </NextHead>
   );
 }

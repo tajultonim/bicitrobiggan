@@ -15,6 +15,8 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 
+import { useState,useEffect } from "react";
+
 import Link from "next/link";
 
 export default function Footer() {
@@ -40,7 +42,7 @@ export default function Footer() {
         </Flex>
         <Flex alignItems="center" justifyContent="center">
           <Text textAlign="center" color="white" fontSize="12px" opacity="0.8">
-            For any query call us 01878613436 (10AM to 10PM).
+            For any query call us (880) 1878-613-436 (10AM to 10PM).
           </Text>
         </Flex>
         <Flex
@@ -93,7 +95,7 @@ export default function Footer() {
           © Copyright {new Date().getUTCFullYear()}, All Rights Reserved | BicitroBiggan
         </Text>
       </Flex>
-      <Flex bg="#FF6700" w="100%" h="5px"/>
+      <Flex bg="#FF6700" w="100% "h="5px"/>
     </>
   );
 }
