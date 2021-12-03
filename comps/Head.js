@@ -67,7 +67,7 @@ export default function Head({
         sizes="16x16"
         href="/res/favicons/favicon-16x16.png"
       />
-       <link rel="manifest" href="/res/favicons/site.webmanifest" />
+       <link rel="manifest" href="/res/favicons/manifest.json" />
     </NextHead>
   );
 }

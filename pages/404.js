@@ -18,6 +18,7 @@ export default function NotFound() {
     <>
       <Head>
         <title>পৃষ্ঠাটি পাওয়া যায় নি! - বিচিত্র বিজ্ঞান</title>
+        <link rel="manifest" href="/res/favicons/manifest.json" />
       </Head>
       <Flex
         w="100%"
