@@ -6,7 +6,12 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="bn">
-        <Head />
+        <Head>
+        <link
+            href="/res/fonts/fonts.css"
+            rel="stylesheet"
+          />
+          </Head>
         <body>
           {/* 👇 Here's the script */}
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />

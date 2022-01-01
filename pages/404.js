@@ -13,12 +13,26 @@ import Link from "next/link";
 import Head from "next/head";
 import { FaArrowRight } from "react-icons/fa";
 
+
 export default function NotFound() {
   return (
     <>
       <Head>
         <title>পৃষ্ঠাটি পাওয়া যায় নি! - বিচিত্র বিজ্ঞান</title>
+        <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/res/favicons/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/res/favicons/favicon-16x16.png"
+      />
         <link rel="manifest" href="/res/favicons/manifest.json" />
+        <meta name="theme-color" content={useColorModeValue("#fff","#1a202c")}/>
       </Head>
       <Flex
         w="100%"

@@ -14,6 +14,13 @@ import {
   InputGroup,
   Tag,
   InputRightElement,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
 } from "@chakra-ui/react";
 
 import { useRouter } from "next/router";
@@ -33,7 +40,7 @@ import {
 } from "react-icons/fa";
 import { ImClock, ImFire } from "react-icons/im";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, forwardRef } from "react";
 
 export default function Home() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -224,7 +231,7 @@ export default function Home() {
           position="relative"
           top="0px"
           width="100%"
-          zIndex="100"
+          zIndex="3"
           transition="all .3s ease"
         >
           <Flex
@@ -408,20 +415,7 @@ export default function Home() {
                 w="100%"
                 justifyContent="left"
               >
-                <Icon
-                  onClick={() => {
-                    menu();
-                  }}
-                  display={{ base: "block", sm: "none" }}
-                  _hover={{ color: "#FF6700" }}
-                  tabIndex="12"
-                  boxSize="25px"
-                  ml="6.9px"
-                  style={{ strokeWidth: "15" }}
-                  as={AiFillAppstore}
-                  cursor="pointer"
-                  style={{ userSelect: "none" }}
-                />
+                <Menu />
                 <Link href="/">
                   <a style={{ userSelect: "none" }} tabIndex="-1">
                     <Image
@@ -528,7 +522,7 @@ function SearchDialogue() {
     setIsOpen(!isOpen);
   }
 
-  function valChangeHandler(e) {
+  function SearchValChangeHandler(e) {
     let v = e.target.value;
     setQueryStr(v);
     let query = router.query;
@@ -536,7 +530,7 @@ function SearchDialogue() {
     router.push({ query });
   }
 
-  function overlayClickHandle(e) {
+  function searchOverlayClickHandle(e) {
     console.log(e.target.id);
     if (e.target.id == "search-overlay") {
       toggleSearch();
@@ -589,7 +583,7 @@ function SearchDialogue() {
         alignItems="center"
         flexDirection="column"
         h="100%"
-        onClick={overlayClickHandle}
+        onClick={searchOverlayClickHandle}
       >
         <Flex
           w="100%"
@@ -631,7 +625,7 @@ function SearchDialogue() {
                 }}
                 placeholder="এখানে খুজুন..."
                 value={queryStr}
-                onChange={valChangeHandler}
+                onChange={SearchValChangeHandler}
               />
               <InputRightElement children={<IoSearch onClick={HardSearch} />} />
             </InputGroup>
@@ -741,5 +735,92 @@ function SearchCard({
         </Flex>
       </Flex>
     </Flex>
+  );
+}
+
+function Menu() {
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+
+  return (
+    <>
+      <Icon
+        onClick={onOpen}
+        display={{ base: "block", sm: "none" }}
+        _hover={{ color: "#FF6700" }}
+        tabIndex="12"
+        boxSize="25px"
+        id="menuButton"
+        ml="6.9px"
+        style={{ strokeWidth: "15"}}
+        outline="none"
+        as={AiFillAppstore}
+        cursor="pointer"
+        style={{ userSelect: "none" }}
+      />
+
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerHeader></DrawerHeader>
+        <DrawerContent>
+          <Flex
+            w="100%"
+            justifyContent="center"
+            mt={{ base: "10px", sm: "35px" }}
+            mr={{ base: "10px", sm: "70px" }}
+          >
+            <Icon
+              onClick={onToggle}
+              _hover={{ color: "#FF6700" }}
+              boxSize="30px"
+              style={{ strokeWidth: "15" }}
+              as={IoClose}
+              color="white"
+              cursor="pointer"
+              style={{ userSelect: "none" }}
+            />
+          </Flex>
+          <DrawerBody fontSize="1.3rem" mt="10px">
+            <Link href="/create-post">
+              <a style={{ userSelect: "none" }}>
+                <Text
+                  _hover={{
+                    color: "#FF6700",
+                  }}
+                  h="20px"
+                >
+                  লেখা প্রকাশ করুন
+                </Text>
+              </a>
+            </Link>
+            <Link href="/our-story">
+              <a style={{ userSelect: "none" }}>
+                <Text
+                  _hover={{
+                    color: "#FF6700",
+                  }}
+                  mt="10px"
+                  h="20px"
+                >
+                  আমাদের কথা
+                </Text>
+              </a>
+            </Link>
+            <Link href="/events">
+              <a style={{ userSelect: "none" }}>
+                <Text
+                  _hover={{
+                    color: "#FF6700",
+                  }}
+                  h="20px"
+                  mt="10px"
+                >
+                  ইভেন্টসমূহ
+                </Text>
+              </a>
+            </Link>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
   );
 }

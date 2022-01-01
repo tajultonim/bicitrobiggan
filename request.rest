@@ -1,0 +1,13 @@
+POST  http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{
+    "name":"H.M. Tajul Islam Tanim",
+    "username":"TajulTonim",
+    "email":"tajul.islam.tonim@gmail.com",
+    "password":"TAJUL2020BB*",
+    "ref":"/login"
+}
+
+###
+POST http://localhost:3000/api/upload/image

@@ -1,4 +1,5 @@
 import NextHead from "next/head";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 export default function Head({
   title,
@@ -68,6 +69,7 @@ export default function Head({
         href="/res/favicons/favicon-16x16.png"
       />
        <link rel="manifest" href="/res/favicons/manifest.json" />
+       <meta name="theme-color" content={useColorModeValue("#fff","#1a202c")}/>
     </NextHead>
   );
 }
