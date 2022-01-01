@@ -425,11 +425,10 @@ function ForgetPassword() {
             onClick={toggleReset}
             _hover={{ color: "#FF6700" }}
             boxSize="30px"
-            style={{ strokeWidth: "15" }}
+            style={{ strokeWidth: "15",userSelect: "none" }}
             as={IoClose}
             color="white"
             cursor="pointer"
-            style={{ userSelect: "none" }}
           />
         </Flex>
         <Flex w="100%" justifyContent="center">
@@ -465,7 +464,7 @@ function ForgetPassword() {
                 bg: "linear-gradient(90deg, rgba(69,194,0,1) 0%, rgba(49,159,0,1) 100%)",
                 transform: "scale(1.01)",
               }}
-              color="white"
+              
               _focus={{ boxShadow: "none" }}
               _active={{
                 bg: "linear-gradient(90deg, rgba(69,194,0,1) 0%, rgba(49,159,0,1) 100%)",
@@ -584,7 +583,7 @@ function SignupDialogue() {
           bg: "linear-gradient(90deg, rgba(69,194,0,1) 0%, rgba(49,159,0,1) 100%)",
           transform: "scale(1.01)",
         }}
-        color="white"
+
         _focus={{ boxShadow: "none" }}
         _active={{
           bg: "linear-gradient(90deg, rgba(69,194,0,1) 0%, rgba(49,159,0,1) 100%)",
@@ -623,11 +622,10 @@ function SignupDialogue() {
             onClick={toggleSignup}
             _hover={{ color: "#FF6700" }}
             boxSize="30px"
-            style={{ strokeWidth: "15" }}
+            style={{ strokeWidth: "15",userSelect: "none" }}
             as={IoClose}
             color="white"
             cursor="pointer"
-            style={{ userSelect: "none" }}
           />
         </Flex>
         <Flex w="100%" justifyContent="center">
@@ -738,7 +736,6 @@ function SignupDialogue() {
                 bg: "linear-gradient(90deg, rgba(69,194,0,1) 0%, rgba(49,159,0,1) 100%)",
                 transform: "scale(1.01)",
               }}
-              color="white"
               _focus={{ boxShadow: "none" }}
               _active={{
                 bg: "linear-gradient(90deg, rgba(69,194,0,1) 0%, rgba(49,159,0,1) 100%)",
